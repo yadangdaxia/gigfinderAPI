@@ -1,4 +1,5 @@
 # source 'https://rubygems.org'
+# used for ruby in China only
 source 'https://gems.ruby-china.com/'
 
 
@@ -61,3 +62,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#
