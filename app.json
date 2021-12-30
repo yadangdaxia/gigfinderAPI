@@ -1,0 +1,13 @@
+
+// This ensures your assets get precompiled before each deploy,
+// and any new migration is ran automatically after each deploy!
+
+{
+  "name": "Gig Finder",
+  "scripts": {
+    "dokku": {
+      "predeploy": "bundle exec rake assets:precompile",
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}
