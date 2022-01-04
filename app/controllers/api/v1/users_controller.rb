@@ -4,15 +4,18 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   # Disable forgery protection on this activity
   skip_before_action :verify_authenticity_token
-
   before_action :find_user, only: [:show, :update]
 
   def index
     @user = User.all
   end
 
-  def show
+  def new
   end
+  def create
+  end
+  # def show
+  # end
 
   def find_user
     @user = User.find(params[:id])
@@ -44,22 +47,16 @@ class Api::V1::UsersController < Api::V1::BaseController
     # Update nickname, avatar, etc. from data given in frontend
     # This comes from schema
     @user.name = user_info[:nickName]
-
-    # TO DO:
-
-    # Add two more columns in db for these wechat info
-    # @user.gender = user_info[:gender].to_s
+    @user.gender = user_info[:gender]
     @user.image = user_info[:avatarUrl]
 
     p "----USER HERE 1-----"
     p @user
 
-
     @user.save!
     render json: { currentUser: @user }
     p "----USER HERE 2-----"
     p @user
-
   end
 
   private
