@@ -30,8 +30,9 @@ class Api::V1::GigsController < Api::V1::BaseController
 
   private
 
+  # Params for user input
   def gig_params
-    params.require(:gig).permit(:title, :description, :category_id, :user_id)
+    params.require(:gig).permit(:title, :description, :location, :category_id, :user_id)
   end
 
 end

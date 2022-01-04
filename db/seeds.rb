@@ -10,8 +10,20 @@
 # puts "all gigs destroyed"
 # puts "------"
 
-Gig.create(title: "Voice actor", description: "We need your lovely voice", user_id: User.first, category_id: Category.first)
-# Gig.create(title: "Bartender", description: "We need your cocktail skills", location: "Shangnai", user_id: User.first, category_id: Category.first)
+
+puts "destroying all gigs"
+Gig.destroy_all
+
+puts "destroying all categories"
+Category.destroy_all
+puts "creating categories fun and work"
+Category.create!(name: "Fun")
+Category.create!(name: "Work")
+
+puts "creating gigs..."
+Gig.create!(title: "Voice factor", description: "We need youfr lovely voice", user: User.first, category: Category.first)
+
+Gig.create(title: "Bartender", description: "We need your cocktail skills", location: "Shangnai", user: User.first, category: Category.first)
 
 puts "Created #{Gig.count} gigs"
-# puts "#{Gig.first.title}"
+puts "Created #{Category.count} categories"
