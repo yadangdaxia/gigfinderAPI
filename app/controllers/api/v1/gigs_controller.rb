@@ -3,13 +3,13 @@ class Api::V1::GigsController < Api::V1::BaseController
     @gigs = Gig.all
   end
   def create
-    # make sure  :userId  matches in the front end in create form
-    current_user = User.find(params[:userId])
+    # make sure  :user_id  matches in the front end in create form
+    current_user = User.find(params[:user_id])
     # Initialize instance variable
-    @gig = Gig.new
+    @gig = Gig.new(gig_params)
     @gig.user = current_user
-    # make sure  :categoryId  matches in the front end in create form
-    @gig.category = Category.find(params[:categoryId])
+    # make sure  :category_id  matches in the front end in create form
+    @gig.category = Category.find(params[:category_id])
     @gig.save
   end
   def show
@@ -28,9 +28,10 @@ class Api::V1::GigsController < Api::V1::BaseController
     @gig.destroy
   end
 
-  # private
-  # def permitted_params
-  #   params.require(:gig).permit(:title, :description)
-  # end
+  private
+
+  def gig_params
+    params.require(:gig).permit(:title, :description, :category_id, :user_id)
+  end
 
 end

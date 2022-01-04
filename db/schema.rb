@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_02_041912) do
+ActiveRecord::Schema.define(version: 2022_01_04_131406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 2022_01_02_041912) do
     t.string "expiration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_gigs_on_category_id"
+    t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
   create_table "inquiries", force: :cascade do |t|
@@ -52,4 +56,6 @@ ActiveRecord::Schema.define(version: 2022_01_02_041912) do
     t.string "gender"
   end
 
+  add_foreign_key "gigs", "categories"
+  add_foreign_key "gigs", "users"
 end
