@@ -1,3 +1,6 @@
 class User < ApplicationRecord
-  validates :name, presence: true
+  # No need to validate name, as we don't have it on login
+  validate :open_id
+  has_many :gigs
+  has_many :inquiries
 end

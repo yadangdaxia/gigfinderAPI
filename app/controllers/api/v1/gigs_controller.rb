@@ -1,8 +1,10 @@
 class Api::V1::GigsController < Api::V1::BaseController
   def index
     @gigs = Gig.all
+
     #
     render json: @gigs
+
   end
   def create
     # make sure  :user_id  matches in the front end in create form
@@ -12,7 +14,7 @@ class Api::V1::GigsController < Api::V1::BaseController
     @gig.user = current_user
     # make sure  :category_id  matches in the front end in create form
     @gig.category = Category.find(params[:category_id])
-
+    
     if @gig.save
       render :show, status: :created
     else
