@@ -9,8 +9,10 @@
 # Gig.destroy_all
 # puts "all gigs destroyed"
 # puts "------"
-
-
+require 'faker'
+5.times do
+  User.create!(name: Faker::Internet.email(name: 'Nancy'))
+end
 puts "destroying all gigs"
 Gig.destroy_all
 
@@ -21,9 +23,9 @@ Category.create!(name: "Fun")
 Category.create!(name: "Work")
 
 puts "creating gigs..."
-Gig.create!(title: "Voice factor", description: "We need youfr lovely voice", user: User.first, category: Category.first)
+Gig.create!(user: User.all.sample, title: "Voice factor", description: "We need youfr lovely voice", category: Category.first)
 
-Gig.create(title: "Bartender", description: "We need your cocktail skills", location: "Shangnai", user: User.first, category: Category.first)
+Gig.create(user: User.all.sample, title: "Bartender", description: "We need your cocktail skills", location: "Shangnai", category: Category.first)
 
 puts "Created #{Gig.count} gigs"
 puts "Created #{Category.count} categories"
