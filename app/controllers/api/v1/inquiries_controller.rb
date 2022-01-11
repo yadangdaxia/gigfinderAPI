@@ -4,15 +4,11 @@ class Api::V1::InquiriesController < Api::V1::BaseController
   end
   def create
     # User sends inquiry about gig to gig poster
-    ## HOW to do this??
-
     @gig = Gig.find(params[:gig_id])
-
     current_user = User.find(params[:userId])
     # Initialize instance variable
     @inquiry = Inquiry.new
     @inquiry.user = current_user
-
     @inquiry.save
   end
 
