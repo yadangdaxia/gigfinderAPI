@@ -10,12 +10,12 @@
 
 
 
-json.extract! @user, :id, :name, :gender, :avatar
+# json.extract! @user, :id, :name, :image, :rate, :description, :contact, :avatar, :gender
 
 
 
-# json.users do
-#   json.array! @users do |user|
-#     json.extract! user, :id, :name, :gender, :avatar
-#   end
-# end
+json.users do
+  json.array! @users do |user|
+    json.extract! user, :id, :name, :gender, :avatar
+  end
+end
