@@ -27,9 +27,9 @@ Category.create!(name: "Fun")
 Category.create!(name: "Work")
 
 puts "creating gigs..."
-Gig.create!(user: User.all.sample, title: "Voice factor", description: "We need youfr lovely voice", category: Category.first)
-
-Gig.create(user: User.all.sample, title: "Bartender", description: "We need your cocktail skills", location: "Shangnai", category: Category.first)
+Gig.create!(user: User.all.sample, title: "Voice actor", description: "We need your lovely voice! It's great if you can sing or make high pitched cartoon character voices", location: "Beijing", rate: "350/hr", term: "as needed", expiration: "no expiration", category: Category.first)
+Gig.create(user: User.all.sample, title: "Bartender", description: "We need your cocktail skills", location: "Shanghai", rate: "negotiable", term: "2 weeks", expiration: "March 1", category: Category.first)
+Gig.create(user: User.all.sample, title: "Drama teacher", description: "We need your cocktail skills", location: "Guangzhou", rate: "25/hr", term: "1 night per week", expiration: "until filled", category: Category.first)
 
 puts "Created #{Gig.count} gigs"
 puts "Created #{Category.count} categories"

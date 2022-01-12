@@ -7,7 +7,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   before_action :find_user, only: [:show, :update]
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def new
@@ -15,8 +15,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def create
   end
   def show
-  end
-
+    
   def find_user
     @user = User.find(params[:id])
   end
