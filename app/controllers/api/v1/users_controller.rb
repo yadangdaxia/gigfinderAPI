@@ -15,7 +15,8 @@ class Api::V1::UsersController < Api::V1::BaseController
   def create
   end
   def show
-    
+  end
+
   def find_user
     @user = User.find(params[:id])
   end
