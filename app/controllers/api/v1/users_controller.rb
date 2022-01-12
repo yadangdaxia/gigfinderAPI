@@ -1,9 +1,9 @@
 class Api::V1::UsersController < Api::V1::BaseController
+  skip_before_action :authenticate_user!, only: [:login]
   URL = "https://api.weixin.qq.com/sns/jscode2session".freeze
   # See this documentation for url -> https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
 
   # Disable forgery protection on this activity
-  skip_before_action :verify_authenticity_token
   before_action :find_user, only: [:show, :update]
 
   def index
@@ -15,9 +15,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def create
   end
   def show
-    @user = User.find(params[:id])
-  end
-
+    
   def find_user
     @user = User.find(params[:id])
   end
@@ -35,7 +33,9 @@ class Api::V1::UsersController < Api::V1::BaseController
     # Creates ID for user, passes to frontend
     render json: {
       userId: @user.id,
-      currentUser: @user
+      currentUser: @user,
+      headers: {"X-USER-ID" => @user.id}
+
     }
   end
 
@@ -72,7 +72,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       js_code: params[:code],
       grant_type: 'authorization_code'
     }
-
+p "===========================1",wechat_params
     # Now using gem that lets us access data
     p "--- WeChat Response ---"
     @wechat_response = RestClient.get(URL, params: wechat_params)
