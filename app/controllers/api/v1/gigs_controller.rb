@@ -1,15 +1,19 @@
 class Api::V1::GigsController < Api::V1::BaseController
-  before_action :set_gig, only: [ :show, :update ]
+  before_action :set_gig, only: [ :show, :update, :destroy ]
   def index
     @gigs = Gig.all
   end
+
   def create
-    @gig = gig.new(gig_params)
-    if @gig.save
-      render :show
-    else
-      render_error
-    end
+    @gig = Gig.new(gig_params)
+    @gig.user = current_user
+    @gig.save!
+    # @gig = Gig.new(gig_params)
+    # if @gig.save
+    #   render :show
+    # else
+    #   render_error
+    # end
   end
 
     # Refer to photo if you need to go back
@@ -22,7 +26,6 @@ class Api::V1::GigsController < Api::V1::BaseController
     # @gig.category = Category.find(params[:category_id])
     # @gig.save
   def show
-
     # uncomment if above doesn't work
 
   end
@@ -43,8 +46,11 @@ class Api::V1::GigsController < Api::V1::BaseController
   end
   def destroy
     # TO DO: update to soft delete - change to inactive
-    @gig = Gig.find(params[:id])
     @gig.destroy
+    head :no_content
+
+    # @gig = Gig.find(params[:id])
+    # @gig.destroy
   end
 
   private
