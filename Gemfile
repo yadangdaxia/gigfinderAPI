@@ -40,6 +40,10 @@ gem 'rest-client'
 # Faker
 gem 'faker'
 
+# For Aliyun
+gem 'activestorage-aliyun'
+gem 'image_processing'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -4,4 +4,4 @@
 #   end
 # end
 
-json.extract! @user, :id, :name, :image, :rate, :description, :contact
+json.extract! @user, :id, :name, :image, :rate, :description, :contact, :talent

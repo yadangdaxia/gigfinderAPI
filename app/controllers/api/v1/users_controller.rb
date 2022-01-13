@@ -22,6 +22,11 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user = User.find(params[:id])
   end
 
+  # below code added to permit photo to be updated by user
+  # def user_params
+  #   params.require(:user).permit(:name, :image, :description, :rate, :contact, :talent)
+  # end
+
   # This is the API endpoint method - you get the open_id from this.
   def login
     # Store info in backend. Use p to see login history.
@@ -43,21 +48,28 @@ class Api::V1::UsersController < Api::V1::BaseController
   def update
     # Params since we passed userInfo as data in frontend (index.js getUserProfile function)
     user_info = params[:userInfo]
-    p "--- User Info ---"
-    p user_info
-    # Update nickname, avatar, etc. from data given in frontend
-    # This comes from schema
-    @user.name = user_info[:nickName]
-    @user.gender = user_info[:gender]
-    @user.image = user_info[:avatarUrl]
 
-    p "----USER HERE 1-----"
-    p @user
+    if user_info.present?
+      p "--- User Info ---"
+      p user_info
+      # Update nickname, avatar, etc. from data given in frontend
+      # This comes from schema
+      @user.name = user_info[:nickName]
+      @user.gender = user_info[:gender]
+      @user.image = user_info[:avatarUrl]
 
-    @user.save!
-    render json: { currentUser: @user }
-    p "----USER HERE 2-----"
-    p @user
+      p "----USER HERE 1-----"
+      p @user
+
+      @user.save!
+
+      p "----USER HERE 2-----"
+      p @user
+      render json: { currentUser: @user }
+    else
+      @user.update(user_params)
+      render json: { currentUser: @user }
+    end
   end
 
   private
@@ -78,5 +90,9 @@ class Api::V1::UsersController < Api::V1::BaseController
     @wechat_response = RestClient.get(URL, params: wechat_params)
     p "--- Response Body ---"
     @wechat_user = JSON.parse(@wechat_response.body)
+  end
+
+  def user_params
+    params.require(:user).permit(:rate, :description, :talent)
   end
 end
