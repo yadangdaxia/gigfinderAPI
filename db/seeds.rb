@@ -9,6 +9,14 @@
 
 require 'faker'
 
+# 5.times do
+#   User.create!(name: Faker::Internet.email(name: 'Nancy'))
+# end
+
+# puts "creating users"
+# User.create!(name: 'David', image: "https://source.unsplash.com/random/300×300/?skill", rate: 50.2, description: "Flower decerator", contact: "112344555", avatar: "https://source.unsplash.com/random/300×300/?skill", gender: "M")
+
+
 
 puts "destroying all users"
 User.destroy_all
