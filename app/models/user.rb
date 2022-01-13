@@ -3,4 +3,5 @@ class User < ApplicationRecord
   validate :open_id
   has_many :gigs
   has_many :inquiries
+  # has_one_attached :image
 end
