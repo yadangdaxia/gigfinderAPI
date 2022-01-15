@@ -24,7 +24,8 @@ puts "destroying all gigs"
 Gig.destroy_all
 puts "destroying all categories"
 Category.destroy_all
-
+puts "destroying all inquiries"
+Inquiry.destroy_all
 
 
 # 5.times do
@@ -45,5 +46,12 @@ Gig.create(user: User.all.sample, title: "Bartender", description: "We need your
 Gig.create(user: User.all.sample, title: "Drama teacher", description: "We need your cocktail skills", location: "Guangzhou", rate: "25/hr", term: "1 night per week", expiration: "until filled", category: Category.first)
 Gig.create(user: User.all.sample, title: "Graffiti artist", description: "Searching for an artist to add color and design to our building", location: "Shenzhen", rate: "35/hr", term: "multi-day", expiration: "no expiration", category: Category.first)
 
+puts "creating inquiries..."
+Inquiry.create!(user_id: 1, gig_id: 1, confirm: false)
+Inquiry.create!(user_id: 2, gig_id: 2, confirm: false)
+
+
+puts "Created #{User.count} users"
 puts "Created #{Gig.count} gigs"
 puts "Created #{Category.count} categories"
+puts "Created #{Inquiry.count} inquiries"

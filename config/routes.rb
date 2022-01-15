@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :update, :create]
       resources :gigs, only: [:index, :show, :create, :update, :destroy]
       # For login action, verb needs to be post
-
+        resources :inquiries
       # resources :users, only: [:index, :show]
       # TO DO: Can continue with customize action
       post '/login', to: 'users#login'

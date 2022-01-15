@@ -59,7 +59,7 @@ class Api::V1::GigsController < Api::V1::BaseController
   end
   # Params for user input
   def gig_params
-    params.require(:gig).permit(:title, :rate, :description, :location, :category_id)
+    params.require(:gig).permit(:title, :rate, :description, :location, :date_posted, :term, :expiration, :category_id)
   end
 
   def render_error
