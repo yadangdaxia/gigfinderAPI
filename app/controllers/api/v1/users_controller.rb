@@ -41,7 +41,6 @@ class Api::V1::UsersController < Api::V1::BaseController
       userId: @user.id,
       currentUser: @user,
       headers: {"X-USER-ID" => @user.id}
-
     }
   end
 
@@ -94,6 +93,6 @@ p "===========================1",wechat_params
   end
 
   def user_params
-    params.require(:user).permit(:rate, :description, :talent)
+    params.require(:user).permit(:rate, :description, :talent, :image, :contact)
   end
 end
