@@ -4,14 +4,15 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: [:index, :show, :update, :create]
-      resources :gigs, only: [:index, :show, :create, :update, :destroy]
+      resources :gigs, only: [:index, :show, :create, :update, :destroy] do
+          resources :categories
       # For login action, verb needs to be post
 
       # resources :users, only: [:index, :show]
       # TO DO: Can continue with customize action
       post '/login', to: 'users#login'
 
-      resources :categories
+      end
     end
   end
 end
