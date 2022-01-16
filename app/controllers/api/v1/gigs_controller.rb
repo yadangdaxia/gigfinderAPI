@@ -1,10 +1,13 @@
 class Api::V1::GigsController < Api::V1::BaseController
   before_action :set_gig, only: [ :show, :update, :destroy ]
   def index
-    @gigs = Gig.all
-    if params["query"].present?
-      @gigs= Gig.search_by_title(params["query"])
-
+    if params["bookmark"].present?
+      @gigs= Gig.joins(:gig_bookmarks).where(gig_bookmarks: { user: current_user })
+    else
+      @gigs = Gig.all
+      if params["query"].present?
+        @gigs= Gig.search_by_title(params["query"])
+      end
     end
   end
 
@@ -30,6 +33,8 @@ class Api::V1::GigsController < Api::V1::BaseController
     # @gig.category = Category.find(params[:category_id])
     # @gig.save
   def show
+    @bookmarked = GigBookmark.find_by(user: current_user, gig_id: params[:id] ).present?
+
     # uncomment if above doesn't work
 
   end

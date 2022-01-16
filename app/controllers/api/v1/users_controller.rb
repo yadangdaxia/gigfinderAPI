@@ -7,10 +7,14 @@ class Api::V1::UsersController < Api::V1::BaseController
   before_action :find_user, only: [:show, :update, :image_upload]
 
   def index
-    @users = User.all
+    if params["bookmark"].present?
+      @users = User.where("id IN (SELECT t.talent_id FROM talent_bookmarks t WHERE t.user_id = ?)", current_user.id)
+    else
+      @users = User.all
       if params["query"].present?
-      @users= User.search_by_talent(params["query"])
+        @users= User.search_by_talent(params["query"])
 
+      end
     end
   end
 

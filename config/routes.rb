@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
 
       resources :gigs, only: [:index, :show, :create, :update, :destroy] do
+        resources :gig_bookmarks, only: [:create]
         resources :inquiries, only: [:create]
       end
       resources :inquiries, only: [:index]
