@@ -4,7 +4,7 @@
 json.inquiries do
   # This @users below is from users_controller
   json.array! @inquiries do |inquiry|
-    json.extract! inquiry, :id, :completed, :user_id, :gig_id
+    p json.extract! inquiry, :id, :confirm, :message, :user_id, :gig_id
   end
 end
 
