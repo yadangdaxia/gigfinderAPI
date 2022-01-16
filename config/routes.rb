@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # namespace command used to differentiate versions
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users, only: [:index, :show, :update, :create]
+      resources :users, only: [:index, :show, :update, :create] do
+        resources :talent_bookmarks, only: [:create]
+      end
       resources :gigs, only: [:index, :show, :create, :update, :destroy]
       # For login action, verb needs to be post
         resources :inquiries

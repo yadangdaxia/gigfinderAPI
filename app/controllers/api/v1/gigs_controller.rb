@@ -2,6 +2,10 @@ class Api::V1::GigsController < Api::V1::BaseController
   before_action :set_gig, only: [ :show, :update, :destroy ]
   def index
     @gigs = Gig.all
+    if params["query"].present?
+      @gigs= Gig.search_by_title(params["query"])
+
+    end
   end
 
   def create

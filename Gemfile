@@ -36,6 +36,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # For WeChat Authentication
 gem 'rest-client'
 
+#search function gem
+gem 'pg_search'
+
 
 # Faker
 gem 'faker'
