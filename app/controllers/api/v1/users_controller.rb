@@ -8,6 +8,10 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def index
     @users = User.all
+      if params["query"].present?
+      @users= User.search_by_talent(params["query"])
+
+    end
   end
 
   def new
@@ -15,6 +19,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def create
   end
   def show
+    @bookmarked = TalentBookmark.find_by(user: current_user, talent: @user).present?
   end
 
   def find_user

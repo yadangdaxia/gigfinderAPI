@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_021522) do
+
+ActiveRecord::Schema.define(version: 2022_01_16_034056) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +51,15 @@ ActiveRecord::Schema.define(version: 2022_01_16_021522) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "gig_bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "gig_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gig_id"], name: "index_gig_bookmarks_on_gig_id"
+    t.index ["user_id"], name: "index_gig_bookmarks_on_user_id"
+  end
+
   create_table "gigs", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -76,6 +87,15 @@ ActiveRecord::Schema.define(version: 2022_01_16_021522) do
     t.index ["user_id"], name: "index_inquiries_on_user_id"
   end
 
+  create_table "talent_bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "talent_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["talent_id"], name: "index_talent_bookmarks_on_talent_id"
+    t.index ["user_id"], name: "index_talent_bookmarks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "image"
@@ -92,8 +112,12 @@ ActiveRecord::Schema.define(version: 2022_01_16_021522) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "gig_bookmarks", "gigs"
+  add_foreign_key "gig_bookmarks", "users"
   add_foreign_key "gigs", "categories"
   add_foreign_key "gigs", "users"
   add_foreign_key "inquiries", "gigs"
   add_foreign_key "inquiries", "users"
+  add_foreign_key "talent_bookmarks", "users"
+  add_foreign_key "talent_bookmarks", "users", column: "talent_id"
 end
