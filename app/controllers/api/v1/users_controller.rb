@@ -4,7 +4,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   # See this documentation for url -> https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
 
   # Disable forgery protection on this activity
-  before_action :find_user, only: [:show, :update]
+  before_action :find_user, only: [:show, :update, :image_upload]
 
   def index
     if params["bookmark"].present?
@@ -23,11 +23,13 @@ class Api::V1::UsersController < Api::V1::BaseController
   def create
   end
   def show
-    @bookmarked = TalentBookmark.find_by(user: current_user, talent: @user).present?
   end
 
   def find_user
+    puts "find_user"
     @user = User.find(params[:id])
+    @bookmarked = TalentBookmark.find_by(user: current_user, talent: @user).present?
+
   end
 
   # below code added to permit photo to be updated by user
@@ -55,6 +57,8 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   # Use update method to access additional properties (e.g. name, gender, avatar, etc.)
   def update
+    p "inside users update"
+    p "user: #{@user.id}"
     # Params since we passed userInfo as data in frontend (index.js getUserProfile function)
     user_info = params[:userInfo]
 
@@ -81,6 +85,15 @@ class Api::V1::UsersController < Api::V1::BaseController
     end
   end
 
+  def image_upload
+    # .attach is an active storage method
+    @user.image_attachment.attach(params[:file])
+    user = @user.as_json
+    # user["image"] = @user.image_attachment.service_url
+    user["image"] = @user.image_attachment.url
+    render json:  { currentUser: user }
+  end
+
   private
 
   # This is how we get the information from wechat platform
@@ -93,7 +106,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       js_code: params[:code],
       grant_type: 'authorization_code'
     }
-p "===========================1",wechat_params
+    p "===========================1",wechat_params
     # Now using gem that lets us access data
     p "--- WeChat Response ---"
     @wechat_response = RestClient.get(URL, params: wechat_params)
@@ -102,6 +115,6 @@ p "===========================1",wechat_params
   end
 
   def user_params
-    params.require(:user).permit(:rate, :description, :talent, :image, :contact)
+    params.require(:user).permit(:name, :rate, :description, :talent, :image, :contact)
   end
 end

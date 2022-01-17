@@ -4,7 +4,8 @@
 json.users do
   # This @users below is from users_controller
   json.array! @users do |user|
-    json.extract! user, :id, :name, :image, :description, :rate, :contact, :talent
+    json.extract! user, :id, :image, :name, :description, :rate, :contact, :talent
+    # json.image user.image_attachment.attached? ? user.image_attachment.url : user.image
   end
 end
 

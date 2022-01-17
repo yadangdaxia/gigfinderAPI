@@ -5,9 +5,9 @@ class User < ApplicationRecord
   validate :open_id
   has_many :gigs
   has_many :inquiries
-  # has_one_attached :image
+  has_one_attached :image_attachment
 
-include PgSearch::Model
+  include PgSearch::Model
   pg_search_scope :search_by_talent,
     against: [ :talent ],
     using: {

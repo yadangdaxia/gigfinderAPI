@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
       resources :users, only: [:index, :show, :update, :create] do
         resources :talent_bookmarks, only: [:create]
+        member do
+          post "image_upload"
+        end
       end
 
       resources :gigs, only: [:index, :show, :create, :update, :destroy] do
