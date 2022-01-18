@@ -90,7 +90,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user.image_attachment.attach(params[:file])
     user = @user.as_json
     # user["image"] = @user.image_attachment.service_url
-    user["image"] = @user.image_attachment.url
+    user["image"] = @user.image_attachment.service_url
     render json:  { currentUser: user }
   end
 

@@ -32,6 +32,7 @@ class Api::V1::GigsController < Api::V1::BaseController
     # make sure  :category_id  matches in the front end in create form
     # @gig.category = Category.find(params[:category_id])
     # @gig.save
+
   def show
     @bookmarked = GigBookmark.find_by(user: current_user, gig_id: params[:id] ).present?
 
@@ -51,8 +52,10 @@ class Api::V1::GigsController < Api::V1::BaseController
 
   def favorite
   end
+
   def show_favorite_gigs
   end
+
   def destroy
     # TO DO: update to soft delete - change to inactive
     @gig.destroy
