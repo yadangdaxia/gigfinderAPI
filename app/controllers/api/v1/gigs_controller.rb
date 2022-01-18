@@ -3,6 +3,8 @@ class Api::V1::GigsController < Api::V1::BaseController
   def index
     if params["bookmark"].present?
       @gigs= Gig.joins(:gig_bookmarks).where(gig_bookmarks: { user: current_user })
+    elsif params["my"].present?
+      @gigs = current_user.gigs
     else
       @gigs = Gig.all
       if params["query"].present?
@@ -14,6 +16,8 @@ class Api::V1::GigsController < Api::V1::BaseController
   def create
     @gig = Gig.new(gig_params)
     @gig.user = current_user
+    # always grabs the first category
+    @gig.category = Category.first
     @gig.save!
     # @gig = Gig.new(gig_params)
     # if @gig.save
