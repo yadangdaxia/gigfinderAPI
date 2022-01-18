@@ -12,6 +12,9 @@ class Api::V1::GigBookmarksController < Api::V1::BaseController
       @gig_bookmark.user = current_user
       @gig_bookmark.save
       @gig = @gig_bookmark.gig
+      p "=====/=/=/=/=/======"
+      p @gig
+      p "=====/=/=/=/=/======"
       @bookmarked = true
     end
   end

@@ -4,6 +4,7 @@ class Gig < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :inquiries
+  has_many :gig_bookmarks
 
   include PgSearch::Model
   pg_search_scope :search_by_title,

@@ -1,7 +1,9 @@
 class Api::V1::InquiriesController < Api::V1::BaseController
   def index
     # shows only the inquiries of the current user
-    p @inquiries = Inquiry.joins(:gig).where(user: current_user)
+    # p @inquiries = Inquiry.joins(:gig).where(user: current_user)
+    @inquiries = Inquiry.joins(:gig).where(gig: {user: current_user})
+
   end
 
   def create
