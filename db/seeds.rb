@@ -35,15 +35,23 @@ Category.destroy_all
 
 
 # 5.times do
-User.create!(name: 'Pillow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user1.jpeg', rate: 'depends', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Animator", contact: Faker::Internet.email)
-User.create!(name: 'David', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user2.jpeg', rate: '35/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Translator", contact: Faker::Internet.email)
-User.create!(name: 'Jerry', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user3.jpeg', rate: '25usd/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo artist", contact: Faker::Internet.email)
-User.create!(name: 'Chris', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user4.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
-User.create!(name: 'Leslie', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user5.jpeg', rate: '$39/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Fashion Design", contact: Faker::Internet.email)
-User.create!(name: 'Penny', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user6.jpeg', rate: '540rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo design", contact: Faker::Internet.email)
-User.create!(name: 'Richard', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user7.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
-User.create!(name: 'Minnow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user8.jpeg', rate: '280rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Carpenter", contact: Faker::Internet.email)
-User.create!(name: 'Cotton', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user9.jpeg', rate: '700 USD - full day', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Interpreter", contact: Faker::Internet.email)
+# User.create!(name: 'Pillow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user1.jpeg', rate: 'depends', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Animator", contact: Faker::Internet.email)
+# User.create!(name: 'David', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user2.jpeg', rate: '35/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Translator", contact: Faker::Internet.email)
+# User.create!(name: 'Jerry', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user3.jpeg', rate: '25usd/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo artist", contact: Faker::Internet.email)
+# User.create!(name: 'Chris', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user4.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
+# User.create!(name: 'Leslie', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user5.jpeg', rate: '$39/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Fashion Design", contact: Faker::Internet.email)
+# User.create!(name: 'Penny', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user6.jpeg', rate: '540rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo design", contact: Faker::Internet.email)
+# User.create!(name: 'Richard', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user7.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
+# User.create!(name: 'Minnow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user8.jpeg', rate: '280rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Carpenter", contact: Faker::Internet.email)
+# User.create!(name: 'Cotton', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user9.jpeg', rate: '700 USD - full day', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Interpreter", contact: Faker::Internet.email)
+User.create!(name: 'Denise', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user1.jpeg', rate: '120rmb/hr', description:"Photography for business events such as weddings, team events and trainings, ", talent: "Photographer", contact: Faker::Internet.email)
+User.create!(name: 'Paulo', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user2.jpeg', rate: '270rmb/hr', description:"Great at taking pics with my iphone.", talent: "General Photographer", contact: Faker::Internet.email)
+User.create!(name: 'Alex', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user3.jpeg', rate: '1200 rmb - full day', description:"Full time wedding photographer, with years of experience.  Have some upcoming frees days on Jan 23rd, 25th and 27th", talent: "Wedding Photographer", contact: Faker::Internet.email)
+User.create!(name: 'Skylar', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user4.jpeg', rate: '300rmb/hr', description:"Experience in combat missions and training programs photography.", talent: "Photographer", contact: Faker::Internet.email)
+User.create!(name: 'Oakley', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user5.jpeg', rate: '$45/hr', description:"Will do custom photoshop and framing if needed.", talent: "Portrait and Event Photographer", contact: Faker::Internet.email)
+User.create!(name: 'Armani', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user6.jpeg', rate: '540rmb/hr', description:"Experience with weddings, birthday parties and events, family portaits, etc.", talent: "Photographer", contact: Faker::Internet.email)
+
+
 # end
 
 
@@ -54,12 +62,13 @@ Category.create!(name: "Work")
 puts "creating gigs..."
 Gig.create!(user: User.all.sample, title: "Voice actor", description: "We need your lovely voice! It's great if you can sing or make high pitched cartoon character voices", location: "Beijing", rate: "350/hr", term: "as needed", expiration: "end of 2022", category: Category.first)
 Gig.create(user: User.all.sample, title: "Bartender", description: "We need your cocktail skills", location: "Shanghai", rate: "negotiable", term: "2 weeks", expiration: "March 1", category: Category.first)
-Gig.create(user: User.all.sample, title: "Drama teacher", description: "We need your cocktail skills", location: "Guangzhou", rate: "25/hr", term: "1 night per week", expiration: "until filled", category: Category.first)
+Gig.create(user: User.all.sample, title: "Drama teacher", description: "Looking for experienced theatre teacher to lead a local musical production", location: "Guangzhou", rate: "25/hr", term: "1 night per week", expiration: "until filled", category: Category.first)
 Gig.create(user: User.all.sample, title: "Graffiti artist", description: "Searching for an artist to add color and design to our building", location: "Shenzhen", rate: "35/hr", term: "multi-day", expiration: "no expiration", category: Category.first)
 Gig.create!(user: User.all.sample, title: "Thai/English translator", description: "Needed on a recurring basis for online/offline meetings. Get in touch.", location: "Beijing", rate: "350/hr", term: "as needed", expiration: "no expiration", category: Category.first)
 Gig.create(user: User.all.sample, title: "Full stack Web development", description: "Ongoing projects! Work from home or our office 3 days per week.", location: "Tennessee", rate: "Munificent", term: "Indefinite", expiration: "Until filled", category: Category.first)
 Gig.create(user: User.all.sample, title: "Dance/theatre teacher", description: "We're looking to hire a dedicated adjunct instructor with 6+ years of experience teaching secondary school students or above", location: "Tokyo", rate: "45/hr", term: "3 days per week", expiration: "until filled", category: Category.first)
 Gig.create(user: User.all.sample, title: "Comic artist/illustrator/painter", description: "Need a talented comic artist to decorate the interior of our kindergarten", location: "Fushun", rate: "negotiable", term: "multi-day", expiration: "no expiration", category: Category.first)
+Gig.create(user: User.all.sample, title: "Model", description: "Need an experienced model for a photo shoot on Sunday. Please bring your own clothing.", location: "Fushun", rate: "negotiable", term: "multi-day", expiration: "no expiration", category: Category.first)
 
 
 
