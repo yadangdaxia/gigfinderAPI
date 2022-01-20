@@ -33,17 +33,16 @@ puts "destroying all categories"
 Category.destroy_all
 
 
-
 # 5.times do
-# User.create!(name: 'Pillow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user1.jpeg', rate: 'depends', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Animator", contact: Faker::Internet.email)
-# User.create!(name: 'David', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user2.jpeg', rate: '35/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Translator", contact: Faker::Internet.email)
-# User.create!(name: 'Jerry', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user3.jpeg', rate: '25usd/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo artist", contact: Faker::Internet.email)
-# User.create!(name: 'Chris', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user4.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
-# User.create!(name: 'Leslie', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user5.jpeg', rate: '$39/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Fashion Design", contact: Faker::Internet.email)
-# User.create!(name: 'Penny', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user6.jpeg', rate: '540rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo design", contact: Faker::Internet.email)
-# User.create!(name: 'Richard', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user7.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
-# User.create!(name: 'Minnow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user8.jpeg', rate: '280rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Carpenter", contact: Faker::Internet.email)
-# User.create!(name: 'Cotton', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user9.jpeg', rate: '700 USD - full day', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Interpreter", contact: Faker::Internet.email)
+User.create!(name: 'Pillow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user1.jpeg', rate: 'depends', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Animator", contact: Faker::Internet.email)
+User.create!(name: 'David', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user2.jpeg', rate: '35/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Translator", contact: Faker::Internet.email)
+User.create!(name: 'Jerry', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user3.jpeg', rate: '25usd/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo artist", contact: Faker::Internet.email)
+User.create!(name: 'Chris', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user4.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
+User.create!(name: 'Leslie', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user5.jpeg', rate: '$39/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Fashion Design", contact: Faker::Internet.email)
+User.create!(name: 'Penny', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user6.jpeg', rate: '540rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Tattoo design", contact: Faker::Internet.email)
+User.create!(name: 'Richard', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user7.jpeg', rate: '300rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Teacher", contact: Faker::Internet.email)
+User.create!(name: 'Minnow', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user8.jpeg', rate: '280rmb/hr', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Carpenter", contact: Faker::Internet.email)
+User.create!(name: 'Cotton', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user9.jpeg', rate: '700 USD - full day', description: Faker::Quote.most_interesting_man_in_the_world, talent: "Interpreter", contact: Faker::Internet.email)
 User.create!(name: 'Denise', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user1.jpeg', rate: '120rmb/hr', description:"Photography for business events such as weddings, team events and trainings, ", talent: "Photographer", contact: Faker::Internet.email)
 User.create!(name: 'Paulo', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user2.jpeg', rate: '270rmb/hr', description:"Great at taking pics with my iphone.", talent: "General Photographer", contact: Faker::Internet.email)
 User.create!(name: 'Alex', image: 'https://giggle-cloud.oss-cn-shanghai.aliyuncs.com/Resources/user3.jpeg', rate: '1200 rmb - full day', description:"Full time wedding photographer, with years of experience.  Have some upcoming frees days on Jan 23rd, 25th and 27th", talent: "Wedding Photographer", contact: Faker::Internet.email)
